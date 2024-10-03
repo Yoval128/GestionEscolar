@@ -78,4 +78,9 @@ class AlumnoController extends Controller
 
         return redirect()->route('alumno');
     }
+
+    public function alumno_detalle($id){
+        $query = Alumno::find($id);
+        return view('alumno_detalle')->with(['alumno'=>$query]);
+    }
 }

@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Alumnos</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
@@ -33,6 +33,12 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('asignacion') }}">Asignación</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('carrera') }}">Carrera</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('carrera_grupo') }}">Carrera_Grupo</a>
                         </li>
                     </ul>
                 </div>
@@ -75,6 +81,13 @@
                                 Borrar
                             </button>
                         </a>
+
+                        <a href="{{ route('alumno_detalle', ['id' => $alumnos->id_alumno]) }}">
+                            <button type="button" class="btn btn-info">
+                                Detalle
+                            </button>
+                        </a>
+                    
                     </td>
                 </tr>
                 @endforeach

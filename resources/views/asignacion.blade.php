@@ -34,6 +34,12 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('asignacion') }}">Asignación</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('carrera') }}">Carrera</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('carrera_grupo') }}">Carrera_Grupo</a>
+                        </li>
                     </ul>
                 </div>
             </div>
