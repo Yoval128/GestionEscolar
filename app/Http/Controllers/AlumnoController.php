@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use Illuminate\Http\Request;
 use Auth;
 use Illuminate\Support\Facades\Session;
@@ -67,7 +68,7 @@ class AlumnoController extends Controller
             $img2 = $ldate . $img;
             \Storage::disk('local')->put($img2, \File::get($file));
         } else {
-            $img2 = $id->foto; 
+            $img2 = $id->foto;
         }
 
         $id->update([
@@ -79,8 +80,9 @@ class AlumnoController extends Controller
         return redirect()->route('alumno');
     }
 
-    public function alumno_detalle($id){
+    public function alumno_detalle($id)
+    {
         $query = Alumno::find($id);
-        return view('alumno_detalle')->with(['alumno'=>$query]);
+        return view('alumno_detalle')->with(['alumno' => $query]);
     }
 }

@@ -45,7 +45,7 @@
             </div>
         </nav>
 
-        <br><br><br> 
+        <br><br><br>
         <div class="mt-5 pt-5">
             <h3>Alumno a Grupo</h3>
             <h5>Asignación -> Registro</h5>
@@ -113,8 +113,8 @@
                         <tr>
                             <td>{{ $asignacion->id_grupo_alumno }}</td>
                             <td>{{ $asignacion->cuatrimestre }}</td>
-                            <td>{{ $asignacion->id_grupo }}</td>
-                            <td>{{ $asignacion->id_alumno }}</td>
+                            <td>{{ $asignacion->AgGrupo->nombre }}</td>
+                            <td>{{ $asignacion->AgAlumno->nombre }}</td>
                             <td>
                                 <a href="{{ route('asignacion_borrar', ['id' => $asignacion->id_grupo_alumno]) }}">
                                     <button type="button" class="btn btn-danger btn-sm"
@@ -122,11 +122,46 @@
                                         Borrar
                                     </button>
                                 </a>
-                                
+
                             </td>
                         </tr>
                     @endforeach
                 </tbody>
+            </table>
+
+            <br>
+            <hr><br>
+            <h1>Lista de asignaciones de Alumnos Grupo</h1>
+            <br>
+            <hr>
+            <table class="table">
+                <tr>
+                    <th>#</th>
+                    <th>N° Registro</th>
+                    <th>Cuatrimestre</th>
+                    <th>Clave</th>
+                    <th>Grupo</th>
+                    <th>Nombre</th>
+                    <th>Acciones</th>
+                </tr>
+
+
+                @foreach ($datos as $key => $dato)
+                    <tr>
+                        <td>{{ $key + 1 }}</td>
+                        <td>{{ $dato->id }}</td>
+                        <td>{{ $dato->cuatrimestre }}</td>
+                        <td>{{ $dato->clave }}</td>
+                        <td>{{ $dato->grupo }}</td>
+                        <td>{{ $dato->alumno }}</td>
+                        <td><a href="{{ route('asignacion_borrar', ['id' => $dato->id]) }}">
+                                <button type="button" class="btn btn-danger btn-sm"
+                                    onclick="return confirm('¿Seguro que quieres borrar este registro?')">
+                                    Borrar
+                                </button>
+                            </a></td>
+                    </tr>
+                @endforeach
             </table>
         </div>
     </div>
