@@ -54,7 +54,7 @@
             <form action="{{ route('carrera_grupo_registrar') }}" method="POST" enctype="multipart/form-data">
                 {{ csrf_field() }}
                 <h3>Asignación de Carrera a Grupo</h3>
-                
+
                 <div class="mb-3">
                     <label for="id_carrera">Carrera</label>
                     <select name="id_carrera" id="id_carrera" class="form-select">
@@ -92,6 +92,7 @@
             <table class="table">
                 <thead>
                     <tr>
+                        <th>#</th>
                         <th>N°</th>
                         <th>Carrera</th>
                         <th>Grupo</th>
@@ -100,24 +101,25 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($carrera_grupo as $carreras_grupos)
-                        <tr>
-                            <td>{{ $carreras_grupos->id_carrera_grupo }}</td>
-                            <td>{{ $carreras_grupos->id_carrera_grupo }}</td>
-                            <td>{{ $carreras_grupos->carrera->nombre }}</td>
-                            <td>{{ $carreras_grupos->grupo->nombre }}</td>
-                            <td>{{ $carreras_grupos->activo ? 'Sí' : 'No' }}</td>
-                            <td>
-                                <a
-                                    href="{{ route('carrera_grupo_borrar', ['id' => $carreras_grupos->id_carrera_grupo]) }}">
-                                    <button type="button" class="btn btn-danger btn-sm"
-                                        onclick="return confirm('¿Seguro que quieres borrar este registro?')">
-                                        Borrar
-                                    </button>
-                                </a>
-                            </td>
-                        </tr>
-                    @endforeach
+                   
+                    @foreach ($datos as $key => $carreras_grupos)
+                    <tr>
+                        <td>{{ $key + 1 }}</td>
+                        <td>{{ $carreras_grupos->id }}</td>
+                        <td>{{ $carreras_grupos->carrera }}</td> 
+                        <td>{{ $carreras_grupos->grupo }}</td>  
+                        <td>{{ $carreras_grupos->activo ? 'Sí' : 'No' }}</td>
+                        <td>
+                            <form action="{{ route('carrera_grupo_borrar', ['id' => $carreras_grupos->id]) }}" method="POST" onsubmit="return confirm('¿Seguro que quieres borrar este registro?')">
+                              
+                                <button type="submit" class="btn btn-danger btn-sm">Borrar</button>
+                            </form>
+                        </td>
+                    </tr>
+                @endforeach
+                
+                
+
                 </tbody>
             </table>
         </div>
