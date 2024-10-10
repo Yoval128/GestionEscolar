@@ -19,7 +19,7 @@ class GrupoAlumno extends Model
     protected $fillable = [
         'id_alumno',
         'id_grupo',
-        'cuatrimestre'
+        'cuatrimestre' 
     ];
 
     public function AgAlumno()

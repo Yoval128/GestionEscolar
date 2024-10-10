@@ -96,7 +96,7 @@
                 <button type="submit" class="btn btn-primary">Guardar</button>
             </form>
 
-            <h1>Lista de Asignaciones de Alumno a Grupo</h1>
+           {{--  <h1>Lista de Asignaciones de Alumno a Grupo</h1>
             <hr>
             <table class="table">
                 <thead>
@@ -128,10 +128,11 @@
                     @endforeach
                 </tbody>
             </table>
-
+ --}}
             <br>
             <hr><br>
             <h1>Lista de asignaciones de Alumnos Grupo</h1>
+            <h1>Carreras Grupos</h1>
             <br>
             <hr>
             <table class="table">

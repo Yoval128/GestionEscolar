@@ -15,4 +15,16 @@ class CarreraGrupo extends Model
         'id_grupo',
         'activo',
     ];
+
+
+    public function carrera()
+    {
+        return $this->belongsTo(Carrera::class, 'id_carrera');
+    }
+
+    public function grupo()
+    {
+        return $this->belongsTo(Grupo::class, 'id_grupo');
+    }
+
 }
